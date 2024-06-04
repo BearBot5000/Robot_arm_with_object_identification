@@ -1,0 +1,28 @@
+#build workspace
+cd ~/ros2_1
+colcon build
+#source workspace
+source install/local_setup.bash
+
+
+# run the world simulator in gazebo
+gazebo ~/ros2_1/src/my_gazebo_worlds/worlds/my_world.world --verbose -s libgazebo_ros_factory.so
+# run the shape detection
+python3 ~/ros2_1/src/shape_detection/scripts/shape_detection_node.py --verbose
+
+
+
+ #manual robot spawn
+ source ~/ros2_1/install/local_setup.bash
+ ros2 run gazebo_ros spawn_entity.py -file ~/ros2_1/src/my_gazebo_worlds/urdf/robot_arm.urdf -entity robot_arm
+
+ros2 launch my_gazebo_worlds spawn_robot_launch.py
+
+#view robot claw cam
+source /opt/ros/humble/setup.bash
+source ~/ros2_1/install/setup.bash
+ros2 run image_view image_view --ros-args -r image:=/robot_arm/robot_arm_camera/image_raw
+
+#move robot robot
+source ~/ros2_1/install/local_setup.bash
+python3 ~/ros2_1/src/my_gazebo_worlds/scripts/move_robot_arm.py
