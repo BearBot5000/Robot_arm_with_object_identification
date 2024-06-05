@@ -1,0 +1,74 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+joint_state_broadcaster:
+  ros__parameters:
+    type: "joint_state_broadcaster/JointStateBroadcaster"
+    publish_rate: 50
+
+joint_trajectory_controller:
+  ros__parameters:
+    type: "joint_trajectory_controller/JointTrajectoryController"
+    joints:
+      - base_link_to_limb1
+      - limb1_to_limb2
+      - limb2_to_limb3
+      - limb3_to_limb4
+      - Revolute 9
+      - Revolute 10
+      - Revolute 11
+      - Revolute 12
+      - Revolute 13
+      - Slider 14
+      - Slider 15
+    state_publish_rate: 50
+    action_monitor_rate: 10
+    constraints:
+      goal_time: 0.5
+      stopped_velocity_tolerance: 0.01
+      base_link_to_limb1:
+        trajectory: 0.1
+        goal: 0.1
+      limb1_to_limb2:
+        trajectory: 0.1
+        goal: 0.1
+      limb2_to_limb3:
+        trajectory: 0.1
+        goal: 0.1
+      limb3_to_limb4:
+        trajectory: 0.1
+        goal: 0.1
+      Revolute 9:
+        trajectory: 0.1
+        goal: 0.1
+      Revolute 10:
+        trajectory: 0.1
+        goal: 0.1
+      Revolute 11:
+        trajectory: 0.1
+        goal: 0.1
+      Revolute 12:
+        trajectory: 0.1
+        goal: 0.1
+      Revolute 13:
+        trajectory: 0.1
+        goal: 0.1
+      Slider 14:
+        trajectory: 0.1
+        goal: 0.1
+      Slider 15:
+        trajectory: 0.1
+        goal: 0.1
+    gains:
+      base_link_to_limb1: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      limb1_to_limb2: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      limb2_to_limb3: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      limb3_to_limb4: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      Revolute 9: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      Revolute 10: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      Revolute 11: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      Revolute 12: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      Revolute 13: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      Slider 14: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}
+      Slider 15: {p: 100.0, d: 0.1, i: 0.01, i_clamp: 1.0}

@@ -1,0 +1,94 @@
+<robot name="ME543_robot_arm">
+  <material name="silver">
+    <color rgba="0.700 0.700 0.700 1.000"/>
+  </material>
+
+  <!-- Dummy Link -->
+  <link name="dummy_link">
+    <inertial>
+      <mass value="0.0001"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="1e-06" iyz="0.0" izz="1e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Gray"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="dummy_joint" type="fixed">
+    <parent link="dummy_link"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.02448438639204284"/>
+      <mass value="8.60929647902388"/>
+      <inertia ixx="0.018256" ixy="0.0" ixz="-0.0" iyy="0.018256" iyz="-0.0" izz="0.033017"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Joint and Link Example -->
+  <joint name="joint1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-1.57" upper="1.57" velocity="1.0"/>
+  </joint>
+
+  <link name="link1">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- gazebo_ros2_control Plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <robotNamespace>/robot_arm</robotNamespace>
+      <robotParam>robot_description</robotParam>
+      <controlConfigFile>/root/ros2_1/src/my_gazebo_worlds/config/robot_controllers.yaml</controlConfigFile>
+    </plugin>
+  </gazebo>
+</robot>

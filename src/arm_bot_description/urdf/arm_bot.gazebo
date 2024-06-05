@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<robot name="arm_bot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<!-- Include the transmission file -->
+<xacro:include filename="$(find arm_bot_description)/urdf/arm_bot.trans"/>
+
+<gazebo>
+  <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+    <robot_namespace>/</robot_namespace>
+    <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+    <legacy_mode>1</legacy_mode>
+    <control_period>0.01</control_period>
+    <parameters>$(find arm_bot_description)/config/arm_bot_control.yaml</parameters>
+  </plugin>
+</gazebo>
+
+
+<gazebo>
+  <plugin name="joint_controller_plugin" filename="libjoint_controller_plugin.so"/>
+</gazebo>
+
+<gazebo reference="base_link">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="link_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="link_2_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="link_3_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="link_4_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="link_5_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="jaw_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="jaw_2_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+</robot>
