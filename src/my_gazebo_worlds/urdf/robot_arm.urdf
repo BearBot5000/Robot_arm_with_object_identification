@@ -9,19 +9,147 @@
     <color rgba="0.700 0.700 0.700 1.000"/>
   </material>
 
+  <ros2_control name="ME543_robot_arm_controller" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    <joint name="Revolute_9">
+      <command_interface name="position">
+        <param name="min">-3.14159</param>
+        <param name="max">3.14159</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Revolute_10">
+      <command_interface name="position">
+        <param name="min">-3.14159</param>
+        <param name="max">3.14159</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Revolute_11">
+      <command_interface name="position">
+        <param name="min">-3.14159</param>
+        <param name="max">3.14159</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Revolute_12">
+      <command_interface name="position">
+        <param name="min">-3.14159</param>
+        <param name="max">3.14159</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Revolute_13">
+      <command_interface name="position">
+        <param name="min">-3.14159</param>
+        <param name="max">3.14159</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Slider_14">
+      <command_interface name="position">
+        <param name="min">0</param>
+        <param name="max">0.1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Slider_15">
+      <command_interface name="position">
+        <param name="min">0</param>
+        <param name="max">0.1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <ros2_control>
-        <name>ME543_robot_arm_controller</name>
-        <type>system</type>
-        <hardware>
-          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-          <ros2_control_parameters>/root/ros2_1/src/my_gazebo_worlds/config/robot_controllers.yaml</ros2_control_parameters>
-        </hardware>
-      </ros2_control>
+        <robotNamespace>/robot_arm</robotNamespace>
+        <controlConfigFile>/root/ros2_1/src/my_gazebo_worlds/config/robot_controllers.yaml</controlConfigFile>
     </plugin>
   </gazebo>
 
+ <transmission name="transmission1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Revolute_9">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="transmission2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Revolute_10">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="transmission3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Revolute_11">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="transmission4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Revolute_12">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="transmission5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Revolute_13">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="transmission6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Slider_14">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="transmission7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Slider_15">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor7">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  
 
   <gazebo reference="base_link">
     <material>Gazebo/Silver</material>
