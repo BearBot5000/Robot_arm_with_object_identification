@@ -1,6 +1,8 @@
 #build workspace
 cd ~/ros2_1
 colcon build
+
+
 #source workspace
 cd ~/ros2_1
 source install/local_setup.bash
@@ -8,22 +10,65 @@ source install/local_setup.bash
 
 # run the world simulator in gazebo
 gazebo ~/ros2_1/src/my_gazebo_worlds/worlds/my_world.world --verbose -s libgazebo_ros_factory.so
+
 # run the shape detection
 python3 ~/ros2_1/src/shape_detection/scripts/shape_detection_node.py --verbose
 
+#run the user input and "moveit"
+python3 ~/ros2_1/src/shape_detection/scripts/select_object_pick.py
+
+#launch robot (ros2) robot with joint plugin(no worky)
+ros2 launch src/arm_bot_description/launch/gazebo.launch.py
+
+#launch arm in rviz (worky)
+ros2 launch src/arm_bot_description/launch/display.launch.py
+
+#launch controllers for arm (also don't work)
+ros2 launch src/arm_bot_description/launch/controllers.launch.py
 
 
- #manual robot spawn
- source ~/ros2_1/install/local_setup.bash
- ros2 run gazebo_ros spawn_entity.py -file ~/ros2_1/src/my_gazebo_worlds/urdf/robot_arm.urdf -entity robot_arm
 
-ros2 launch my_gazebo_worlds spawn_robot_launch.py
+
+
+
+
+
+
+
+
+
+
+#manual robot spawn
+source ~/ros2_1/install/local_setup.bash
+ros2 run gazebo_ros spawn_entity.py -file ~/ros2_1/src/my_gazebo_worlds/urdf/robot_arm.urdf -entity robot_arm
+#start robot state publisher
+ros2 run robot_state_publisher robot_state_publisher --ros-args -p use_sim_time:=true -p robot_description:="$(cat ~/ros2_1/src/my_gazebo_worlds/urdf/robot_arm.urdf)"
+
+#start the control manager
+ros2 run controller_manager ros2_control_node --ros-args --params-file /root/ros2_1/src/my_gazebo_worlds/config/robot_controllers.yaml -r /robot_description:=/robot_description
+
+#manually spawn controllers
+ros2 run controller_manager spawner joint_state_broadcaster --controller-manager /controller_manager
+ros2 run controller_manager spawner forward_position_controller --controller-manager /controller_manager
+
+
+#start and load effort_controllersros2 control load_controller --set-state active joint_state_controller
+ros2 control load_controller --set-state active Revolute_9_position_controller
+ros2 control load_controller --set-state active Revolute_10_position_controller
+ros2 control load_controller --set-state active Revolute_11_position_controller
+ros2 control load_controller --set-state active Revolute_12_position_controller
+ros2 control load_controller --set-state active Revolute_13_position_controller
+ros2 control load_controller --set-state active Slider_14_position_controller
+ros2 control load_controller --set-state active Slider_15_position_controller
+
 
 #view robot claw cam
 source /opt/ros/humble/setup.bash
 source ~/ros2_1/install/setup.bash
 ros2 run image_view image_view --ros-args -r image:=/robot_arm/robot_arm_camera/image_raw
 
+
 #move robot robot
 source ~/ros2_1/install/local_setup.bash
 python3 ~/ros2_1/src/my_gazebo_worlds/scripts/move_robot_arm.py
+
