@@ -5,7 +5,7 @@
       <uri>model://sun</uri>
     </include>
 
-    <!-- Simple white floor -->
+    <!-- white floor -->
     <model name="white_floor">
       <static>true</static>
       <link name="link">
@@ -50,7 +50,7 @@
       </link>
     </model>
 
-    <!-- Add a larger red sphere -->
+    <!-- red sphere -->
     <model name="red_sphere">
       <pose>-0.5 0 0.2 0 0 0</pose>
       <link name="link">
@@ -75,7 +75,7 @@
       </link>
     </model>
 
-    <!-- Add a larger green sphere -->
+    <!--  green sphere -->
     <model name="green_sphere">
       <pose>0 0 0.2 0 0 0</pose>
       <link name="link">
@@ -100,7 +100,7 @@
       </link>
     </model>
 
-    <!-- Add a larger blue sphere -->
+    <!--  blue sphere -->
     <model name="blue_sphere">
       <pose>0.5 0 0.2 0 0 0</pose>
       <link name="link">
@@ -125,7 +125,7 @@
       </link>
     </model>
 
-    <!-- Add the top-down camera model -->
+    <!-- top-down camera model -->
     <model name="top_down_camera">
       <static>true</static>
       <pose>0 0 2.5 1.5708 1.5708 0</pose>
@@ -133,11 +133,11 @@
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.08 0.08 0.08</size> <!-- Adjusted box size to represent the camera -->
+              <size>0.08 0.08 0.08</size> 
             </box>
           </geometry>
           <material>
-            <ambient>0.5 0.5 0.5 1</ambient> <!-- Gray color -->
+            <ambient>0.5 0.5 0.5 1</ambient>
             <diffuse>0.5 0.5 0.5 1</diffuse>
           </material>
         </visual>
@@ -170,19 +170,19 @@
       </link>
     </model>
 
-    <!-- Add the side view camera model -->
+    <!-- side view camera model -->
     <model name="side_view_camera">
       <static>true</static>
-      <pose>0 2.5 0.204926 0 0 -1.57</pose> <!-- Positioning the camera -->
+      <pose>0 2.5 0.204926 0 0 -1.57</pose> 
       <link name="link">
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.08 0.08 0.08</size> <!-- Adjusted box size to represent the camera -->
+              <size>0.08 0.08 0.08</size> 
             </box>
           </geometry>
           <material>
-            <ambient>0.5 0.5 0.5 1</ambient> <!-- Gray color -->
+            <ambient>0.5 0.5 0.5 1</ambient> 
             <diffuse>0.5 0.5 0.5 1</diffuse>
           </material>
         </visual>

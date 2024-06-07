@@ -193,7 +193,7 @@ class ShapeDetectionNode(Node):
         for top_shape, top_color, top_cx, top_cy in top_down_shapes:
             matched = False
             for side_shape, side_color, side_cx, side_cy in side_view_shapes:
-                if abs(top_cx - side_cx) < 40:  # Adjust threshold as needed
+                if abs(top_cx - side_cx) < 40:  
                     world_x, world_y = self.pixel_to_world(top_cx, top_cy, image_width, image_height)
                     if top_shape == "sphere" and side_shape == "circle":
                         combined_shapes.append((top_color, "sphere", world_x, world_y))
