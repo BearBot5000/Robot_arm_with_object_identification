@@ -131,7 +131,7 @@
     <state_interface name="effort"/>
   </joint>
 
-  <joint name="Revolute 9">
+  <joint name="Revolute_9">
     <command_interface name="position">
       <param name="min">-1.57</param>
       <param name="max">1.57</param>
@@ -143,7 +143,7 @@
     <state_interface name="effort"/>
   </joint>
 
-  <joint name="Revolute 10">
+  <joint name="Revolute_10">
     <command_interface name="position">
       <param name="min">-1.57</param>
       <param name="max">1.57</param>
@@ -155,7 +155,7 @@
     <state_interface name="effort"/>
   </joint>
 
-  <joint name="Revolute 11">
+  <joint name="Revolute_11">
     <command_interface name="position">
       <param name="min">-1.57</param>
       <param name="max">1.57</param>
@@ -167,7 +167,7 @@
     <state_interface name="effort"/>
   </joint>
 
-  <joint name="Revolute 12">
+  <joint name="Revolute_12">
     <command_interface name="position">
       <param name="min">-1.57</param>
       <param name="max">1.57</param>
@@ -179,7 +179,7 @@
     <state_interface name="effort"/>
   </joint>
 
-  <joint name="Revolute 13">
+  <joint name="Revolute_13">
     <command_interface name="position">
       <param name="min">-1.57</param>
       <param name="max">1.57</param>
@@ -191,7 +191,7 @@
     <state_interface name="effort"/>
   </joint>
 
-  <joint name="Slider 14">
+  <joint name="Slider_14">
     <command_interface name="position">
       <param name="min">-1.57</param>
       <param name="max">1.57</param>
@@ -203,7 +203,7 @@
     <state_interface name="effort"/>
   </joint>
 
-  <joint name="Slider 15">
+  <joint name="Slider_15">
     <command_interface name="position">
       <param name="min">-1.57</param>
       <param name="max">1.57</param>

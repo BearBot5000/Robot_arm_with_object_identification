@@ -15,13 +15,13 @@ joint_trajectory_controller:
       - limb1_to_limb2
       - limb2_to_limb3
       - limb3_to_limb4
-      - Revolute 9
-      - Revolute 10
-      - Revolute 11
-      - Revolute 12
-      - Revolute 13
-      - Slider 14
-      - Slider 15
+      - Revolute_9
+      - Revolute_10
+      - Revolute_11
+      - Revolute_12
+      - Revolute_13
+      - Slider_14
+      - Slider_15
     state_publish_rate: 50
     action_monitor_rate: 10
     constraints:

@@ -32,7 +32,7 @@ def generate_launch_description():
         output='screen'
     )
 
-    gazebo_server = IncludeLaunchDescription(
+    """gazebo_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
                 FindPackageShare('gazebo_ros'),
@@ -54,14 +54,17 @@ def generate_launch_description():
                 'gzclient.launch.py'
             ])
         ])
-    )
+    )"""
 
-    urdf_spawn_node = Node(
+    spawn_entity_node = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=[
             '-entity', 'arm_bot',
-            '-topic', 'robot_description'
+            '-topic', 'robot_description',
+            '-x', '0.0',
+            '-y', '-2.0',
+            '-z', '0.0'
         ],
         output='screen'
     )
@@ -69,7 +72,5 @@ def generate_launch_description():
     return LaunchDescription([
         robot_state_publisher_node,
         joint_state_publisher_node,
-        gazebo_server,
-        gazebo_client,
-        urdf_spawn_node,
+        spawn_entity_node,
     ])

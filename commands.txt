@@ -2,6 +2,7 @@
 cd ~/ros2_1
 colcon build
 #source workspace
+cd ~/ros2_1
 source install/local_setup.bash
 
 

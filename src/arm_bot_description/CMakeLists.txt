@@ -16,6 +16,7 @@ find_package(robot_state_publisher REQUIRED)
 find_package(joint_state_publisher REQUIRED)
 find_package(joint_state_publisher_gui REQUIRED)
 find_package(gazebo_ros REQUIRED)
+find_package(joint_trajectory_controller REQUIRED)
 
 # Install URDF and launch files
 install(DIRECTORY urdf config launch DESTINATION share/${PROJECT_NAME}/)
@@ -36,6 +37,8 @@ include_directories(
   ${joint_state_publisher_INCLUDE_DIRS}
   ${joint_state_publisher_gui_INCLUDE_DIRS}
   ${gazebo_ros_INCLUDE_DIRS}
+  ${joint_trajectory_controller_INCLUDE_DIRS}
+  ${joint_state_broadcaster_INCLUDE_DIRS}
 )
 
 # Install Python modules

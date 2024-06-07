@@ -4,25 +4,67 @@
     <include>
       <uri>model://sun</uri>
     </include>
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
 
-    <!-- Add a box -->
+    <!-- Simple white floor -->
+    <model name="white_floor">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>10 10</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_cfm>0.0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>100.0</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>10 10</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Add a larger box -->
     <model name="box">
-      <pose>-0.02 0 0.01 0 0 0</pose>
+      <pose>-0.5 0 0.2 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.04 0.04 0.04</size>
+              <size>0.4 0.4 0.4</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.04 0.04 0.04</size>
+              <size>0.4 0.4 0.4</size>
             </box>
           </geometry>
           <material>
@@ -33,23 +75,23 @@
       </link>
     </model>
 
-    <!-- Add a cylinder -->
+    <!-- Add a larger cylinder -->
     <model name="cylinder">
-      <pose>0.02 0 0.01 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <cylinder>
-              <radius>0.02</radius>
-              <length>0.04</length>
+              <radius>0.2</radius>
+              <length>0.4</length>
             </cylinder>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <cylinder>
-              <radius>0.02</radius>
-              <length>0.04</length>
+              <radius>0.2</radius>
+              <length>0.4</length>
             </cylinder>
           </geometry>
           <material>
@@ -60,21 +102,21 @@
       </link>
     </model>
 
-    <!-- Add a sphere -->
+    <!-- Add a larger sphere -->
     <model name="sphere">
-      <pose>0.04 0 0.01 0 0 0</pose>
+      <pose>0.5 0 0.2 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <sphere>
-              <radius>0.02</radius>
+              <radius>0.2</radius>
             </sphere>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <sphere>
-              <radius>0.02</radius>
+              <radius>0.2</radius>
             </sphere>
           </geometry>
           <material>
@@ -88,7 +130,7 @@
     <!-- Add the top-down camera model -->
     <model name="top_down_camera">
       <static>true</static>
-      <pose>0 0 2 -1.47 1.5 -1.47</pose> <!-- Positioning the camera -->
+      <pose>0 0 2.5 1.5708 1.5708 0</pose>
       <link name="link">
         <visual name="visual">
           <geometry>
@@ -105,8 +147,8 @@
           <camera>
             <horizontal_fov>1.047</horizontal_fov>
             <image>
-              <width>640</width>
-              <height>480</height>
+              <width>1280</width>
+              <height>960</height>
               <format>R8G8B8</format>
             </image>
             <clip>
@@ -133,7 +175,7 @@
     <!-- Add the side view camera model -->
     <model name="side_view_camera">
       <static>true</static>
-      <pose>0 2 0.1 0 0 -1.57</pose> <!-- Positioning the camera -->
+      <pose>0 2.5 0.204926 0 0 -1.57</pose> <!-- Positioning the camera -->
       <link name="link">
         <visual name="visual">
           <geometry>
@@ -150,8 +192,8 @@
           <camera>
             <horizontal_fov>1.047</horizontal_fov>
             <image>
-              <width>640</width>
-              <height>480</height>
+              <width>1280</width>
+              <height>960</height>
               <format>R8G8B8</format>
             </image>
             <clip>

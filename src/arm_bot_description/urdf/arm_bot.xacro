@@ -183,42 +183,42 @@
   <axis xyz="0.0 0.0 0.0"/>
 </joint>
 
-<joint name="Revolute 9" type="continuous">
+<joint name="Revolute_9" type="continuous">
   <origin xyz="0.0 0.0 0.04" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="link_1_1"/>
   <axis xyz="0.0 0.0 1.0"/>
 </joint>
 
-<joint name="Revolute 10" type="continuous">
+<joint name="Revolute_10" type="continuous">
   <origin xyz="0.0 0.03 0.16" rpy="0 0 0"/>
   <parent link="link_1_1"/>
   <child link="link_2_1"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="Revolute 11" type="continuous">
+<joint name="Revolute_11" type="continuous">
   <origin xyz="-0.35 0.01 0.0" rpy="0 0 0"/>
   <parent link="link_2_1"/>
   <child link="link_3_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
 </joint>
 
-<joint name="Revolute 12" type="continuous">
+<joint name="Revolute_12" type="continuous">
   <origin xyz="-0.3 -0.03 0.0" rpy="0 0 0"/>
   <parent link="link_3_1"/>
   <child link="link_4_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
 </joint>
 
-<joint name="Revolute 13" type="continuous">
+<joint name="Revolute_13" type="continuous">
   <origin xyz="-0.06 -0.01 0.0" rpy="0 0 0"/>
   <parent link="link_4_1"/>
   <child link="link_5_1"/>
   <axis xyz="-1.0 0.0 0.0"/>
 </joint>
 
-<joint name="Slider 14" type="prismatic">
+<joint name="Slider_14" type="prismatic">
   <origin xyz="-0.045 0.05 0.0075" rpy="0 0 0"/>
   <parent link="link_5_1"/>
   <child link="jaw_1_1"/>
@@ -226,7 +226,7 @@
   <limit upper="0.0" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
-<joint name="Slider 15" type="prismatic">
+<joint name="Slider_15" type="prismatic">
   <origin xyz="-0.045 -0.05 0.0075" rpy="0 0 0"/>
   <parent link="link_5_1"/>
   <child link="jaw_2_1"/>

@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: arm_bot_description
+    relative_path: urdf/arm_bot.xacro
+  srdf:
+    relative_path: config/arm_bot.srdf
+  package_settings:
+    author_name: Brenton Mizell
+    author_email: mizebrent12@gmail.com
+    generated_timestamp: 1717742403
