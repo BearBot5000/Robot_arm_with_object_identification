@@ -2,6 +2,8 @@
 
 Welcome to the Robot Arm with Object Identification project! This repository contains the code and resources for controlling a robotic arm to identify and manipulate objects using computer vision.
 
+Demo: https://www.youtube.com/watch?v=N-pMKWJekiM&t=99s&ab_channel=BearBot5000
+
 ## Table of Contents
 
 - [Overview](#overview)
